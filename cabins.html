@@ -110,12 +110,12 @@
   <div class="filter-bar">
     <div class="container filter-inner">
       <span class="filter-label">Filter by:</span>
-      <button class="filter-btn active">All Locations</button>
-      <button class="filter-btn">Gatlinburg</button>
-      <button class="filter-btn">Pigeon Forge</button>
-      <button class="filter-btn">Sevierville</button>
-      <button class="filter-btn">Sleeps 2&ndash;4</button>
-      <button class="filter-btn">Sleeps 6+</button>
+      <button class="filter-btn active" data-filter="all">All Locations</button>
+      <button class="filter-btn" data-filter="gatlinburg">Gatlinburg</button>
+      <button class="filter-btn" data-filter="pigeon-forge">Pigeon Forge</button>
+      <button class="filter-btn" data-filter="sevierville">Sevierville</button>
+      <button class="filter-btn" data-filter="sleeps-small">Sleeps 2&ndash;4</button>
+      <button class="filter-btn" data-filter="sleeps-large">Sleeps 6+</button>
     </div>
   </div>
 
@@ -127,7 +127,7 @@
       <div class="card-grid">
 
         <!-- Card 1 — Featured -->
-        <div class="card">
+        <div class="card" data-tags="gatlinburg sleeps-large">
           <div class="card-img card-img-cabin">
             <span class="card-img-placeholder">&#127968;</span>
             <span class="badge-featured">Featured</span>
@@ -147,7 +147,7 @@
         </div>
 
         <!-- Card 2 — Featured -->
-        <div class="card">
+        <div class="card" data-tags="pigeon-forge sleeps-small">
           <div class="card-img card-img-cabin">
             <span class="card-img-placeholder">&#127968;</span>
             <span class="badge-featured">Featured</span>
@@ -167,7 +167,7 @@
         </div>
 
         <!-- Card 3 — Featured -->
-        <div class="card">
+        <div class="card" data-tags="sevierville sleeps-large">
           <div class="card-img card-img-cabin">
             <span class="card-img-placeholder">&#127968;</span>
             <span class="badge-featured">Featured</span>
@@ -187,7 +187,7 @@
         </div>
 
         <!-- Card 4 — Standard -->
-        <div class="card">
+        <div class="card" data-tags="gatlinburg sleeps-small">
           <div class="card-img card-img-cabin">
             <span class="card-img-placeholder">&#127968;</span>
           </div>
@@ -205,7 +205,7 @@
         </div>
 
         <!-- Card 5 — Standard -->
-        <div class="card">
+        <div class="card" data-tags="pigeon-forge sleeps-large">
           <div class="card-img card-img-cabin">
             <span class="card-img-placeholder">&#127968;</span>
           </div>
@@ -224,7 +224,7 @@
         </div>
 
         <!-- Card 6 — Standard -->
-        <div class="card">
+        <div class="card" data-tags="sevierville sleeps-small">
           <div class="card-img card-img-cabin">
             <span class="card-img-placeholder">&#127968;</span>
           </div>
@@ -287,5 +287,50 @@
     </div>
   </footer>
 
+  <script>
+  (function () {
+    var filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+    var cards = document.querySelectorAll('.card-grid .card[data-tags]');
+
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.dataset.filter;
+        cards.forEach(function (card) {
+          var tags = card.dataset.tags.split(' ');
+          card.style.display = (f === 'all' || tags.indexOf(f) !== -1) ? '' : 'none';
+        });
+      });
+    });
+
+    function showToast(html) {
+      var el = document.createElement('div');
+      el.innerHTML = html;
+      Object.assign(el.style, {
+        position: 'fixed', bottom: '24px', left: '50%',
+        transform: 'translateX(-50%)',
+        background: '#1E3A1E', color: '#fff',
+        padding: '12px 22px', borderRadius: '6px',
+        fontSize: '0.9rem', zIndex: '9999',
+        boxShadow: '0 4px 14px rgba(0,0,0,0.35)',
+        maxWidth: '90vw', textAlign: 'center',
+        transition: 'opacity 0.3s'
+      });
+      document.body.appendChild(el);
+      setTimeout(function () {
+        el.style.opacity = '0';
+        setTimeout(function () { el.remove(); }, 300);
+      }, 3500);
+    }
+
+    document.querySelectorAll('a.btn[href="#"]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        showToast('Listing details coming soon. <a href="contact.html" style="color:#C49A0A;font-weight:600;">List your business →</a>');
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

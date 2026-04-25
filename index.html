@@ -286,5 +286,23 @@
     </div>
   </footer>
 
+  <script>
+  (function () {
+    var form = document.querySelector('.search-bar');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var q = form.querySelector('input[name="q"]').value.trim().toLowerCase();
+      if (!q) return;
+      if (/restaurant|food|eat|dine|dining|barbecue|bbq|breakfast|lunch|dinner/.test(q)) {
+        window.location.href = 'restaurants.html';
+      } else if (/shoulder|winter|off.season|january|february|march|november|crowd/.test(q)) {
+        window.location.href = 'shoulder-season.html';
+      } else {
+        window.location.href = 'cabins.html';
+      }
+    });
+  })();
+  </script>
 </body>
 </html>
