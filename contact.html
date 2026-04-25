@@ -80,13 +80,9 @@
             method="POST"
             autocomplete="on"
           >
-            <!-- Web3Forms access key — replace with your actual key -->
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-            <!-- Redirect after successful submission (optional) -->
-            <input type="hidden" name="redirect" value="https://smokymountainweekends.com/contact.html?success=true" />
-            <!-- Subject line for incoming email -->
+            <input type="hidden" name="access_key" value="a2e866d5-8f03-4319-adf5-5e7e8c5aa41b" />
             <input type="hidden" name="subject" value="New Business Listing Inquiry — Smoky Mountain Weekends" />
-            <!-- Honeypot spam protection -->
+            <input type="hidden" name="from_name" value="Smoky Mountain Weekends" />
             <input type="checkbox" name="botcheck" style="display:none;" />
 
             <div class="form-row">
@@ -256,5 +252,61 @@
     </div>
   </footer>
 
+  <script>
+  (function () {
+    var form = document.querySelector('form[action="https://api.web3forms.com/submit"]');
+    if (!form) return;
+
+    var submitBtn = form.querySelector('.btn-submit');
+    var originalText = submitBtn.textContent;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          var card = form.closest('.form-card');
+          card.innerHTML = [
+            '<div style="text-align:center;padding:40px 20px;">',
+            '<div style="font-size:2.5rem;margin-bottom:16px;">&#10003;</div>',
+            '<h2 style="color:var(--green-dark);margin-bottom:12px;">Inquiry Received</h2>',
+            '<p style="color:var(--text-mid);font-size:0.97rem;line-height:1.7;max-width:420px;margin:0 auto 24px;">',
+            'Thanks — we’ll review your submission and follow up within one business day with listing options.',
+            '</p>',
+            '<a href="index.html" class="btn btn-primary">Back to Home</a>',
+            '</div>'
+          ].join('');
+        } else {
+          showError('Something went wrong. Please try again or email us directly.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      })
+      .catch(function () {
+        showError('Network error — check your connection and try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      });
+    });
+
+    function showError(msg) {
+      var existing = document.getElementById('form-error-msg');
+      if (existing) existing.remove();
+      var el = document.createElement('p');
+      el.id = 'form-error-msg';
+      el.style.cssText = 'color:#c0392b;font-size:0.88rem;margin-top:12px;';
+      el.textContent = msg;
+      form.querySelector('.form-submit').appendChild(el);
+    }
+  })();
+  </script>
 </body>
 </html>
