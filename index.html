@@ -49,6 +49,19 @@
   </script>
 
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .hero-nav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 36px; }
+    .hero-nav-panel { display: block; border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; padding: 22px 18px; text-decoration: none; transition: filter 0.2s, transform 0.2s; }
+    .hero-nav-panel:hover { filter: brightness(1.18); transform: translateY(-2px); text-decoration: none; }
+    .hero-nav-panel-cabins   { background: rgba(139,120,80,0.30); }
+    .hero-nav-panel-rest     { background: rgba(196,154,10,0.28); }
+    .hero-nav-panel-todo     { background: rgba(74,143,168,0.28); }
+    .hero-nav-panel-shoulder { background: rgba(160,185,210,0.22); }
+    .hero-nav-label { display: block; font-size: 1.05rem; font-weight: 700; color: #fff; font-family: Georgia, serif; margin-bottom: 6px; }
+    .hero-nav-sub { display: block; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.07em; color: #C8B89A; margin-bottom: 8px; }
+    .hero-nav-desc { display: block; font-size: 0.82rem; color: rgba(255,255,255,0.68); line-height: 1.5; }
+    @media (max-width: 700px) { .hero-nav-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
 </head>
 <body>
 
@@ -79,11 +92,28 @@
         <p class="hero-eyebrow">Sevier County, Tennessee</p>
         <h1>Find Your Perfect Smoky Mountain Escape</h1>
         <p class="hero-sub">Handpicked cabins, local restaurants, and hidden-gem attractions &mdash; no crowds, real prices, direct links to the businesses you will love.</p>
-        <form class="search-bar" role="search" action="#">
-          <input type="search" name="q" placeholder="Search cabins, restaurants, things to do..." aria-label="Search Smoky Mountain Weekends" />
-          <button type="submit">Search</button>
-        </form>
-        <p class="search-hint">Try "romantic cabin Gatlinburg" or "family restaurants Pigeon Forge"</p>
+        <div class="hero-nav-grid">
+          <a href="cabins.html" class="hero-nav-panel hero-nav-panel-cabins">
+            <span class="hero-nav-label">Cabins</span>
+            <span class="hero-nav-sub">Gatlinburg &middot; Pigeon Forge &middot; Sevierville</span>
+            <span class="hero-nav-desc">Browse hand-selected cabin rentals — hot tubs, fireplaces, mountain views</span>
+          </a>
+          <a href="restaurants.html" class="hero-nav-panel hero-nav-panel-rest">
+            <span class="hero-nav-label">Restaurants</span>
+            <span class="hero-nav-sub">Skip the chains</span>
+            <span class="hero-nav-desc">Locally owned dining worth building your itinerary around</span>
+          </a>
+          <a href="things-to-do.html" class="hero-nav-panel hero-nav-panel-todo">
+            <span class="hero-nav-label">Things to Do</span>
+            <span class="hero-nav-sub">Attractions &amp; Activities</span>
+            <span class="hero-nav-desc">Experiences in Sevier County worth your time</span>
+          </a>
+          <a href="shoulder-season.html" class="hero-nav-panel hero-nav-panel-shoulder">
+            <span class="hero-nav-label">Shoulder Season</span>
+            <span class="hero-nav-sub">Jan &ndash; Mar &amp; November</span>
+            <span class="hero-nav-desc">Why the off-season is the Smokies' best-kept secret</span>
+          </a>
+        </div>
       </div>
     </section>
 
