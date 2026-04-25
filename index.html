@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1E3A1E" />
   <title>Smoky Mountain Weekends | Sevier County TN Travel Guide</title>
   <meta name="description" content="Smoky Mountain Weekends — find the perfect Sevier County Tennessee cabin, restaurant, or attraction for your getaway. Shoulder season travel specialists." />
   <link rel="canonical" href="https://smokymountainweekends.com/" />
@@ -31,11 +32,6 @@
         "publisher": {
           "@id": "https://smokymountainweekends.com/#organization"
         },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://smokymountainweekends.com/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
       },
       {
         "@type": "Organization",
@@ -57,7 +53,7 @@
 <body>
 
   <!-- ===== NAVIGATION ===== -->
-  <nav class="site-nav">
+  <nav class="site-nav" aria-label="Main navigation">
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">Smoky Mountain <span>Weekends</span></a>
@@ -65,7 +61,7 @@
         <span></span><span></span><span></span>
       </label>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="cabins.html">Cabins</a></li>
         <li><a href="restaurants.html">Restaurants</a></li>
         <li><a href="shoulder-season.html">Shoulder Season</a></li>

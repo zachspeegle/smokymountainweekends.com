@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1E3A1E" />
   <meta name="description" content="List your Smoky Mountain business on Smoky Mountain Weekends. Cabin rentals, restaurants, attractions, and shops serving Sevier County tourists." />
   <title>List Your Business | Smoky Mountain Weekends</title>
   <link rel="canonical" href="https://smokymountainweekends.com/contact.html" />
@@ -14,13 +15,29 @@
   <meta property="og:url" content="https://smokymountainweekends.com/contact.html" />
   <meta property="og:site_name" content="Smoky Mountain Weekends" />
   <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="List Your Business | Smoky Mountain Weekends" />
+  <meta name="twitter:description" content="Get your Sevier County cabin, restaurant, or attraction in front of tourists planning Smoky Mountain getaways." />
+
+  <!-- JSON-LD: ContactPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "List Your Business — Smoky Mountain Weekends",
+    "description": "List your Smoky Mountain cabin, restaurant, or attraction on Smoky Mountain Weekends. Reach Sevier County visitors actively searching for what you offer.",
+    "url": "https://smokymountainweekends.com/contact.html",
+    "isPartOf": {
+      "@id": "https://smokymountainweekends.com/#website"
+    }
+  }
+  </script>
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <!-- ===== NAVIGATION ===== -->
-  <nav class="site-nav">
+  <nav class="site-nav" aria-label="Main navigation">
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">Smoky Mountain <span>Weekends</span></a>
@@ -32,7 +49,7 @@
         <li><a href="cabins.html">Cabins</a></li>
         <li><a href="restaurants.html">Restaurants</a></li>
         <li><a href="shoulder-season.html">Shoulder Season</a></li>
-        <li class="nav-cta"><a href="contact.html">List Your Business</a></li>
+        <li class="nav-cta"><a href="contact.html" aria-current="page">List Your Business</a></li>
       </ul>
     </div>
   </nav>
