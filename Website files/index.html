@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#1E3A1E" />
   <title>Smoky Mountain Weekends | Sevier County TN Travel Guide</title>
   <meta name="description" content="Smoky Mountain Weekends — find the perfect Sevier County Tennessee cabin, restaurant, or attraction for your getaway. Shoulder season travel specialists." />
   <link rel="canonical" href="https://smokymountainweekends.com/" />
@@ -32,6 +31,11 @@
         "publisher": {
           "@id": "https://smokymountainweekends.com/#organization"
         },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://smokymountainweekends.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       },
       {
         "@type": "Organization",
@@ -53,7 +57,7 @@
 <body>
 
   <!-- ===== NAVIGATION ===== -->
-  <nav class="site-nav" aria-label="Main navigation">
+  <nav class="site-nav">
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">Smoky Mountain <span>Weekends</span></a>
@@ -61,12 +65,11 @@
         <span></span><span></span><span></span>
       </label>
       <ul class="nav-links">
-        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="cabins.html">Cabins</a></li>
         <li><a href="restaurants.html">Restaurants</a></li>
-        <li><a href="things-to-do.html">Things to Do</a></li>
         <li><a href="shoulder-season.html">Shoulder Season</a></li>
-        <li class="nav-cta"><a href="contact.html">Advertise</a></li>
+        <li class="nav-cta"><a href="contact.html">List Your Business</a></li>
       </ul>
     </div>
   </nav>
@@ -177,12 +180,12 @@
               <span class="badge-featured">Featured</span>
             </div>
             <div class="card-body">
-              <span class="card-location">Pigeon Forge</span>
-              <h3 class="card-title">The Old Mill Pottery House Cafe &amp; Grille</h3>
-              <p class="card-desc">Award-winning Southern dining at Old Mill Square. Breads baked daily from grain milled on-site. Named 2022 Best Family Restaurant in Pigeon Forge — lunch, dinner, and weekend brunch.</p>
+              <span class="card-location">Gatlinburg</span>
+              <h3 class="card-title">The Millhouse Kitchen</h3>
+              <p class="card-desc">Farm-to-table Appalachian cuisine in a restored 1940s grist mill. Winter menu features smoked trout chowder and house-cured country ham biscuits. Reservations recommended.</p>
               <div class="card-meta">
-                <span>Lunch &amp; Dinner</span>
-                <span>Weekend Brunch</span>
+                <span>Dinner Nightly</span>
+                <span>Full Bar</span>
               </div>
               <a href="restaurants.html" class="btn btn-primary btn-block">View Details</a>
             </div>
@@ -216,20 +219,6 @@
           <a href="restaurants.html" class="search-tag">best local restaurants Pigeon Forge not a chain</a>
           <a href="shoulder-season.html" class="search-tag">Smoky Mountains in February less crowded</a>
           <a href="cabins.html" class="search-tag">large group cabin rental Sevierville TN</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SPONSOR SPOTLIGHT ===== -->
-    <section class="sponsor-spotlight">
-      <div class="container">
-        <div class="sponsor-spotlight-inner">
-          <div>
-            <p class="sponsor-eyebrow">Featured Sponsor Spotlight</p>
-            <h2>Your Business Here</h2>
-            <p>Join local businesses reaching thousands of Smoky Mountain weekenders actively planning their next Sevier County trip. Reserve your spot today.</p>
-          </div>
-          <a href="contact.html" class="btn btn-primary" style="white-space:nowrap;">Advertise With Us &rarr;</a>
         </div>
       </div>
     </section>
@@ -282,16 +271,15 @@
           <ul>
             <li><a href="cabins.html">Cabins</a></li>
             <li><a href="restaurants.html">Restaurants</a></li>
-            <li><a href="things-to-do.html">Things to Do</a></li>
             <li><a href="shoulder-season.html">Shoulder Season Guide</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>For Businesses</h4>
           <ul>
-            <li><a href="contact.html">Advertise With Us</a></li>
-            <li><a href="contact.html#packages">Pricing &amp; Packages</a></li>
-            <li><a href="contact.html#inquiry">Contact Us</a></li>
+            <li><a href="contact.html">List Your Business</a></li>
+            <li><a href="contact.html">Featured Listings</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
       </div>
@@ -302,23 +290,5 @@
     </div>
   </footer>
 
-  <script>
-  (function () {
-    var form = document.querySelector('.search-bar');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var q = form.querySelector('input[name="q"]').value.trim().toLowerCase();
-      if (!q) return;
-      if (/restaurant|food|eat|dine|dining|barbecue|bbq|breakfast|lunch|dinner/.test(q)) {
-        window.location.href = 'restaurants.html';
-      } else if (/shoulder|winter|off.season|january|february|march|november|crowd/.test(q)) {
-        window.location.href = 'shoulder-season.html';
-      } else {
-        window.location.href = 'cabins.html';
-      }
-    });
-  })();
-  </script>
 </body>
 </html>
